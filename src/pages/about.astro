@@ -17,6 +17,11 @@ const skills = ["Ruby", "Meta Engineering"];
 const happy = false;
 const finished = true;
 const goal = 3;
+
+const operatingSystem = "Linux";
+const quantity = 3;
+const footwear = "ブーツ";
+const student = false;
 ---
 
 <!doctype html>
@@ -55,6 +60,13 @@ const goal = 3;
 
 			{goal === 3 ? <p>My goal is to finish in 3 days. 3日で終えるのが目標です。</p> : <p>My goal is not 3 days. 3日が目標ではありません。</p>}
 
+			<p>{operatingSystem}</p>
+
+			{student && <p>私はまだ学生です。</p>}
+
+			<p>私は{quantity + 8}足の{footwear}を持っています。</p>
+
+			{operatingSystem === "MacOS" ? <p>私はMacを使っています。</p> : <p>私はMacを使っていません。</p>}
 		</main>
 		<Footer />
 	</body>
