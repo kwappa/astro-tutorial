@@ -1,20 +1,50 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const pageTitle = "About me";
+
+const identity = {
+  firstName: "kwappa",
+  country: "Japan",
+  occupation: "No job",
+  hobbies: ["Beer", "Camp", "Sauna"],
+};
+const skills = ["Ruby", "Meta Engineering"];
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
->
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>{pageTitle}</h1>
 
-<h1>About me</h1>
-<ul>
-	<li><a href="/">Home</a></li>
-	<li><a href="/blog/">Blog</a></li>
-	<li><a href="/about/">About</a></li>
-</ul>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/blog/">Blog</a></li>
+				<li><a href="/about/">About</a></li>
+			</ul>
 
-<h2>これは Astro によるサイト構築の練習です</h2>
-
-</Layout>
+			<h2>自己紹介</h2>
+			<p>以下は私に関するいくつかの事実です。</p>
+			<ul>
+				<li>私の名前は{identity.firstName}です。</li>
+				<li>{identity.country}に住んでおり、{identity.occupation}として働いています。</li>
+				{identity.hobbies.length >= 2 &&
+					<li>私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。</li>
+				}
+			</ul>
+			<p>私のスキルは以下の通りです。</p>
+			<ul>
+				{skills.map((skill) => <li>{skill}</li>)}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
