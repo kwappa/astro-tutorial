@@ -22,12 +22,24 @@ const operatingSystem = "Linux";
 const quantity = 3;
 const footwear = "ブーツ";
 const student = false;
+
+const skillColor = "navy";
 ---
 
 <!doctype html>
 <html lang="ja">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style define:vars={{skillColor}}>
+			h1 {
+			  color: purple;
+			  font-size: 4rem;
+			}
+			.skill {
+				color: var(--skillColor);
+			    font-weight: bold;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
@@ -51,7 +63,7 @@ const student = false;
 			</ul>
 			<p>私のスキルは以下の通りです。</p>
 			<ul>
-				{skills.map((skill) => <li>{skill}</li>)}
+				{skills.map((skill) => <li class="skill">{skill}</li>)}
 			</ul>
 
 			{happy && <p>I am happy to be learning Astro! Astroを学べて幸せです！</p>}
