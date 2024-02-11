@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 const pageTitle = "About me";
@@ -46,12 +47,7 @@ const skillColor = "navy";
 		<main>
 			<h1>{pageTitle}</h1>
 
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/blog/">Blog</a></li>
-				<li><a href="/about/">About</a></li>
-			</ul>
-
+			<Navigation />
 			<h2>自己紹介</h2>
 			<p>以下は私に関するいくつかの事実です。</p>
 			<ul>
